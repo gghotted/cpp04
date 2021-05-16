@@ -6,7 +6,7 @@
 class Slave : public Victim {
  public:
   Slave(std::string name);
-  ~Slave(void);
+  virtual ~Slave(void);
 
   void getPolymorphed(void) const;
 };

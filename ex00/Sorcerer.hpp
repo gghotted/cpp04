@@ -8,7 +8,7 @@
 class Sorcerer {
  public:
   Sorcerer(std::string name, std::string title);
-  ~Sorcerer(void);
+  virtual ~Sorcerer(void);
 
   void polymorph(Victim const& victim) const;
 
