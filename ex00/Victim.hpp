@@ -6,6 +6,7 @@
 
 class Victim {
  public:
+  Victim(void);
   Victim(std::string name);
   virtual ~Victim(void);
 

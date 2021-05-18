@@ -5,8 +5,12 @@
 
 class Peon : public Victim {
  public:
+  Peon(void);
   Peon(std::string name);
+  Peon(const Peon& peon);
   virtual ~Peon(void);
+
+  Peon& operator = (const Peon& peon);
 
   void getPolymorphed(void) const;
 };
