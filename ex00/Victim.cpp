@@ -6,8 +6,19 @@ Victim::Victim(std::string name) : name(name) {
   std::cout << "Some random victim called " << name << " just appeared!\n";
 }
 
+Victim::Victim(const Victim& victim)
+{
+  *this = victim;
+}
+
 Victim::~Victim(void) {
   std::cout << "Victim " << name << " just died for no apparent reason!\n";
+}
+
+Victim& Victim::operator = (const Victim& victim)
+{
+  name = victim.name;
+  return *this;
 }
 
 void Victim::getPolymorphed(void) const {
