@@ -40,16 +40,17 @@ void testExtendedMain(void) {
   AWeapon* pr = new PlasmaRifle();
   me->equip(pr);
 
-  Enemy** enemies = new Enemy*[4];
+  Enemy** enemies = new Enemy*[2];
   enemies[0] = new SuperMutant();
-  enemies[1] = new SuperMutant();
-  enemies[2] = new RadScorpion();
-  enemies[3] = new RadScorpion();
+  enemies[1] = new RadScorpion();
   int i = 0;
-  while (i < 4) {
+  while (i < 2) {
     if (me->getAP() < me->getAWeapon()->getAPCost())
       me->recoverAP();
     me->attack(enemies[i]);
+    std::cout << me->getName() << "AP :" << me->getAP() << ", "
+              << enemies[i]->getType()
+              << " HP: " << enemies[i]->getHP() << "\n\n";
     if (enemies[i]->getHP() > 0)
       continue;
     delete enemies[i++];
