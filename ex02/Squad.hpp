@@ -14,13 +14,17 @@ class Squad : public ISquad {
   Squad& operator = (const Squad& squad);
 
   virtual int getCount(void) const;
-  virtual ISpaceMarine* getUnit(int) const;
-  virtual int push(ISpaceMarine*);
-  void resize(int newCount);
+  virtual ISpaceMarine* getUnit(int idx) const;
+  virtual int push(ISpaceMarine* unit);
 
  private:
-  ISpaceMarine** units;
+  ISpaceMarine** cloneUnits() const;
+  void replaceUnits(ISpaceMarine** units);
+  void deleteUnits(void);
+  void resize(int newCount);
+
   int count;
+  ISpaceMarine** units;
 };
 
 #endif
