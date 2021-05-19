@@ -16,6 +16,7 @@ Character::~Character(void) {}
 Character& Character::operator = (const Character& character) {
   name = character.name;
   ap = character.ap;
+  aWeapon = character.aWeapon;
   return *this;
 }
 
