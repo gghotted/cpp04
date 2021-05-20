@@ -14,8 +14,8 @@ Squad::~Squad(void)
 
 Squad& Squad::operator = (const Squad& squad)
 {
-  count = squad.count;
   replaceUnits(squad.cloneUnits());
+  count = squad.count;
   return *this;
 }
 
