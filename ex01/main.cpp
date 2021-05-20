@@ -29,6 +29,7 @@ void testGivenMain(void) {
   me->attack(b);
   std::cout << *me;
 
+  delete b;
   delete me;
   delete pr;
   delete pf;
