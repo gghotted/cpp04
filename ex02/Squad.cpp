@@ -54,6 +54,8 @@ void Squad::replaceUnits(ISpaceMarine** units)
 
 void Squad::deleteUnits(void)
 {
+  if (!units)
+    return ;
   for (int i = 0; i < count; i++)
     delete units[i];
   delete[] units;
