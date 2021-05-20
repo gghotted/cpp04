@@ -27,9 +27,10 @@ void testGivenMain(void) {
   me->attack(b);
   std::cout << *me;
   me->attack(b);
+  if (b->getHP() == 0)
+    delete b;
   std::cout << *me;
 
-  delete b;
   delete me;
   delete pr;
   delete pf;
