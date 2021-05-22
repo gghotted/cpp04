@@ -52,16 +52,28 @@ void testCharacterAssignation()
   you.use(0, me);
 }
 
+void testCharacterUse()
+{
+  Character me("me");
+  Character you("you");
+  Ice* ice = new Ice();
+
+  me.equip(ice);
+  me.use(0, you);
+
+  std::cout << "ice xp: " << ice->getXP();
+}
+
 int main(int argc, char** argv)
 {
   if (argc != 2)
     return 1;
 
-  Ui::setTextColor(Ui::green);
   int testCase = argv[1][0] - '0';
   if (testCase == 0) testGivenMain();
   if (testCase == 1) testCharacterCopyConstructor();
   if (testCase == 2) testCharacterAssignation();
+  if (testCase == 3) testCharacterUse();
 
   std::cout << Ui::blue << "\n";
   system("leaks a.out");
