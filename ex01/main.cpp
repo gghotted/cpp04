@@ -1,10 +1,13 @@
 #include "AWeapon.hpp"
 #include "PlasmaRifle.hpp"
 #include "PowerFist.hpp"
+#include "Branch.hpp"
 #include "Enemy.hpp"
 #include "SuperMutant.hpp"
 #include "RadScorpion.hpp"
 #include "Character.hpp"
+
+#include "Ui.hpp"
 
 void testGivenMain(void) {
   Character* me = new Character("me");
@@ -62,13 +65,26 @@ void testExtendedMain(void) {
   delete[] enemies;
 }
 
+void testBranch()
+{
+  Character me("me");
+  RadScorpion rs;
+  Branch branch;
+
+  me.equip(&branch);
+  me.attack(&rs);
+}
+
 int main(int argc, char **argv)
 {
   if (argc != 2)
-    return 1;
-  if (argv[1][0] == '0')
-    testGivenMain();
-  if (argv[1][0] == '1')
-    testExtendedMain();
-  return 0;
+    return 0;
+
+  int testCase = argv[1][0] - '0';
+  if (testCase == 0) testGivenMain();
+  if (testCase == 1) testExtendedMain();
+  if (testCase == 2) testBranch();
+
+  std::cout << Ui::blue << "\n";
+  system("leaks a.out");
 }
