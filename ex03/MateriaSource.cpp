@@ -46,5 +46,10 @@ void MateriaSource::clearInventory(void)
 void MateriaSource::cloneInventory(const AMateria** inventory)
 {
   for (int i = 0; i < 4; i++)
-    this->inventory[i] = inventory[i]->clone();
+  {
+    if (inventory[i])
+      this->inventory[i] = inventory[i]->clone();
+    else
+      this->inventory[i] = 0;
+  }
 }
